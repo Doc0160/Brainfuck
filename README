@@ -1,0 +1,9 @@
+Building
+---------
+
+Install and build with CMake.
+
+Usage
+-----
+
+Usage: brainfuck <file> <memorysize (2048)>
