@@ -1,6 +1,9 @@
 // Brainfuck interpreter by Gian Sass
 
 #include <iostream>
+#include <stdio.h>
+#include <cstdlib>
+#include <string.h>
 using namespace std;
 
 unsigned int ptr;
