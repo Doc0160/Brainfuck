@@ -1,6 +1,9 @@
 // Brainfuck interpreter by Gian Sass
 
 #include <iostream>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 using namespace std;
 
 unsigned int ptr;
@@ -9,13 +12,22 @@ char *program;
 FILE *file;
 size_t memSize = 2048; // default memory size
 
+char *deref(unsigned int ptr)
+{
+    if(ptr < 0 || ptr > memSize) {
+        cout << "Memory access violation" << endl;
+        exit(1);
+    }
+    return &data[ptr];
+}
+
 int main(int argc, char **argv) {
     if(argc < 2) {
         cout << "Usage: " << argv[0] << " <file> <opt:memory>" << endl;
         return 0;
     }
     if(argc == 3) {
-        memSize = std::atoi(argv[2]);
+        memSize = atoi(argv[2]);
     }
     // Open the file
     file = fopen(argv[1], "r");
@@ -78,11 +90,11 @@ int main(int argc, char **argv) {
             break;
 
         case '+':
-            data[ptr]++;
+            (*deref(ptr))++; 
             break;
 
         case '-':
-            data[ptr]--;
+            (*deref(ptr))--; 
             break;
 
         case '.':
