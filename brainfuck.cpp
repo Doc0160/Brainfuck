@@ -98,11 +98,11 @@ int main(int argc, char **argv) {
             break;
 
         case '.':
-            cout << data[ptr];
+            cout << (*deref(ptr));
             break;
 
         case ',':
-            data[ptr] = (char)getchar();
+            (*deref(ptr)) = (char)getchar();
             break;
 
         case '[':
