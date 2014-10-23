@@ -16,6 +16,7 @@ char *deref(unsigned int ptr)
 {
     if(ptr < 0 || ptr > memSize) {
         cout << "Memory access violation" << endl;
+        cout << "ptr: " << ptr << endl;
         exit(1);
     }
     return &data[ptr];
